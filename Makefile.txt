@@ -1,0 +1,19 @@
+CC = g++
+CFLAGS = -std=c++11 -O3 -fopenmp
+
+all: stage
+
+stage: primitive.o raything.o io.o EasyBMP.o
+	$(CC) primitive.o raything.o io.o EasyBMP.o -o res
+
+primitive.o: primitive.cpp
+	$(CC) $(CFLAGS) primitive.cpp
+
+raything.o: raything.cpp
+	$(CC) $(CFLAGS) raything.cpp
+
+io.o: io.cpp
+	$(CC) $(CFLAGS) io.cpp
+
+EasyBMP.o: EasyBMP.cpp
+	$(CC) $(CFLAGS) EasyBMP.cpp
